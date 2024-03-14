@@ -29,4 +29,4 @@ kubectl apply -f app-namespace.yaml -f app-deployment.yaml -f app-service.yaml
 ```
 
 # Author
-Sooraj Kumar
+Semicolon
