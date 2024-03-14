@@ -30,3 +30,7 @@ kubectl apply -f app-namespace.yaml -f app-deployment.yaml -f app-service.yaml
 
 # Author
 Semicolon
+
+### Youtube
+
+www.youtube.com/@Semicolon10
