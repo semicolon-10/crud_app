@@ -36,4 +36,4 @@ spec:
           emptyDir: {}
         - name: init-sql-volume
           hostPath:
-            path: /Users/skothari/Desktop/crud/docker/init.sql
+            path: /Users/abc/Desktop/crud/docker/init.sql
