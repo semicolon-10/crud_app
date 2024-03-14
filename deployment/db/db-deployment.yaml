@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  namespace: db-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "abc123"
+            - name: POSTGRES_DB
+              value: "info_db"
+          volumeMounts:
+            - mountPath: /var/lib/postgressql/data
+              name: postgres-storage
+            - mountPath: /docker-entrypoint-initdb.d/init.sql
+              name: init-sql-volume
+      volumes:
+        - name: postgres-storage
+          emptyDir: {}
+        - name: init-sql-volume
+          hostPath:
+            path: /Users/skothari/Desktop/crud/docker/init.sql
